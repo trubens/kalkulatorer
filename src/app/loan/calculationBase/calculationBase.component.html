@@ -1,0 +1,21 @@
+<mat-card>
+  <form>
+    <!-- <mat-form-field class="fullWidth">
+      <input matInput placeholder="Startsum" id="totalSum" required [(ngModel)]="model.totalSum" name="totalSum">
+    </mat-form-field> -->
+
+    <mat-form-field class="fullWidth">
+      <input matInput placeholder="Sum igjen nå" id="sumLeft" required [(ngModel)]="model.sumLeft" name="sumLeft">
+    </mat-form-field>
+    
+    <!-- <mat-form-field class="fullWidth">
+      <input matInput placeholder="Nedbetalingstid" id="paymentTime" required [(ngModel)]="model.paymentTime" name="totalSum">
+    </mat-form-field> -->
+
+    <mat-form-field class="fullWidth">
+      <input matInput placeholder="Gjenstående måneder" id="paymentTimeLeft" required [(ngModel)]="model.paymentTimeLeft" name="paymentTimeLeft">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Kalkuler</button>
+  </form>
+</mat-card>
