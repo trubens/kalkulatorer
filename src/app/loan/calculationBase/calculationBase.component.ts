@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+
 import { CalculationBase } from '../calculationBase';
-import { LoanService } from '../loan.service';
+import { AppStates } from '../../app.states';
+import * as fromActions from '../../actions';
 
 @Component({
   selector: 'app-calculationBase',
@@ -11,12 +14,13 @@ import { LoanService } from '../loan.service';
 export class CalculationBaseComponent implements OnInit {
   model: CalculationBase;
 
-  constructor(public loanService: LoanService) {
-    this.model = new CalculationBase(0, 0);
+  constructor(private store: Store<AppStates>) {
+    this.model = new CalculationBase();
   }
+  
 
-  calculate() {
-    this.loanService.getAmortizedMortage(this.model);
+  onChange() {
+    this.store.dispatch(new fromActions.LoanSetCalculationBaseAction(this.model));
   }
 
   ngOnInit() {

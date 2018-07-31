@@ -5,6 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { LoanModule } from './loan/loan.module';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -12,9 +14,10 @@ import { LoanModule } from './loan/loan.module';
   ],
   imports: [
     BrowserModule,
+    StoreModule.forRoot(reducers),
     LoanModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

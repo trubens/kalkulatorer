@@ -1,6 +1,6 @@
 export class RepaymentMonth {
     constructor(
-        month: number,
-        totalPayment: number
+        public month: number,
+        public totalPayment: number
     ) {}
 }

@@ -4,6 +4,7 @@ import { CalculationBaseComponent } from './calculationBase/calculationBase.comp
 import { FormsModule } from '@angular/forms';
 import { MatInputModule, MatCardModule, MatButtonModule } from '@angular/material';
 import { ResultComponent } from './result/result.component';
+import { LoanService } from './loan.service';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { ResultComponent } from './result/result.component';
   exports: [
     CalculationBaseComponent, ResultComponent
   ],
+  providers: [LoanService],
   declarations: [CalculationBaseComponent, ResultComponent]
 })
 export class LoanModule { }

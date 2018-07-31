@@ -13,7 +13,7 @@ export class LoanService {
   /*
    * Annuitetslån 
    */
-  getAmortizedMortage(calculationBase: CalculationBase) {
+  getAmortizedMortage(calculationBase: CalculationBase) : Repayment {
     var result = new Repayment();
     var montlyInterestRate = calculationBase.interestRate / 100 / 12;
 
@@ -25,7 +25,11 @@ export class LoanService {
       )
     
     for(var i = 0; i < calculationBase.paymentTimeLeft; i++) {
-      result.payment.push(new RepaymentMonth(i, monthlyPayment));
+      result.payments.push(new RepaymentMonth(i, monthlyPayment));
     }
+
+    console.log(result);
+
+    return result
   }
 }

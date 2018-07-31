@@ -5,7 +5,11 @@
     </mat-form-field> -->
 
     <mat-form-field class="fullWidth">
-      <input matInput placeholder="Sum igjen nå" id="sumLeft" required [(ngModel)]="model.sumLeft" name="sumLeft">
+      <input matInput type="number" (ngModelChange)="onChange($event)" placeholder="Sum igjen nå" id="sumLeft" required [(ngModel)]="model.sumLeft" name="sumLeft">
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth">
+      <input matInput type="number" (ngModelChange)="onChange($event)" placeholder="Rente" id="rente" required [(ngModel)]="model.interestRate" name="interestRate">
     </mat-form-field>
     
     <!-- <mat-form-field class="fullWidth">
@@ -13,7 +17,7 @@
     </mat-form-field> -->
 
     <mat-form-field class="fullWidth">
-      <input matInput placeholder="Gjenstående måneder" id="paymentTimeLeft" required [(ngModel)]="model.paymentTimeLeft" name="paymentTimeLeft">
+      <input matInput type="number" (ngModelChange)="onChange($event)" placeholder="Gjenstående måneder" id="paymentTimeLeft" required [(ngModel)]="model.paymentTimeLeft" name="paymentTimeLeft">
     </mat-form-field>
 
     <button mat-raised-button color="primary">Kalkuler</button>
