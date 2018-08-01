@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CalculationBaseComponent } from './calculationBase/calculationBase.component';
 import { FormsModule } from '@angular/forms';
-import { MatInputModule, MatCardModule, MatButtonModule } from '@angular/material';
-import { ResultComponent } from './result/result.component';
+import { MatInputModule, MatCardModule, MatButtonModule, MatTableModule, MatSlideToggleModule, MatButtonToggleModule } from '@angular/material';
+import { TerminsComponent } from './termins/termins.component';
 import { LoanService } from './loan.service';
+import { RemainingloanComponent } from './remainingloan/remainingloan.component';
 
 @NgModule({
   imports: [
@@ -12,12 +13,15 @@ import { LoanService } from './loan.service';
     FormsModule,
     MatInputModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    MatSlideToggleModule,
+    MatButtonToggleModule
   ],
   exports: [
-    CalculationBaseComponent, ResultComponent
+    CalculationBaseComponent, TerminsComponent, RemainingloanComponent
   ],
   providers: [LoanService],
-  declarations: [CalculationBaseComponent, ResultComponent]
+  declarations: [CalculationBaseComponent, TerminsComponent, RemainingloanComponent]
 })
 export class LoanModule { }

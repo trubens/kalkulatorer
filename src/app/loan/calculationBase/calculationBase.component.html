@@ -1,25 +1,37 @@
-<mat-card>
-  <form>
-    <!-- <mat-form-field class="fullWidth">
-      <input matInput placeholder="Startsum" id="totalSum" required [(ngModel)]="model.totalSum" name="totalSum">
-    </mat-form-field> -->
+<mat-card class="space-below">
+  <mat-card-title>Lånegrunnlag</mat-card-title>
+  <mat-card-content>
+    <form>
+      <!-- <mat-form-field class="fullWidth">
+        <input matInput placeholder="Startsum" id="totalSum" required [(ngModel)]="model.totalSum" name="totalSum">
+      </mat-form-field> -->
 
-    <mat-form-field class="fullWidth">
-      <input matInput type="number" (ngModelChange)="onChange($event)" placeholder="Sum igjen nå" id="sumLeft" required [(ngModel)]="model.sumLeft" name="sumLeft">
-    </mat-form-field>
+      <mat-form-field class="fullWidth">
+        <input matInput type="number" (ngModelChange)="onChange($event)" placeholder="Sum igjen nå" id="sumLeft" required [(ngModel)]="model.sumLeft" name="sumLeft">
+      </mat-form-field>
 
-    <mat-form-field class="fullWidth">
-      <input matInput type="number" (ngModelChange)="onChange($event)" placeholder="Rente" id="rente" required [(ngModel)]="model.interestRate" name="interestRate">
-    </mat-form-field>
-    
-    <!-- <mat-form-field class="fullWidth">
-      <input matInput placeholder="Nedbetalingstid" id="paymentTime" required [(ngModel)]="model.paymentTime" name="totalSum">
-    </mat-form-field> -->
+      <mat-form-field class="fullWidth">
+        <input matInput type="number" (ngModelChange)="onChange($event)" placeholder="Rente" id="rente" required [(ngModel)]="model.interestRate" name="interestRate">
+      </mat-form-field>
+      
+      <!-- <mat-form-field class="fullWidth">
+        <input matInput placeholder="Nedbetalingstid" id="paymentTime" required [(ngModel)]="model.paymentTime" name="totalSum">
+      </mat-form-field> -->
 
-    <mat-form-field class="fullWidth">
-      <input matInput type="number" (ngModelChange)="onChange($event)" placeholder="Gjenstående måneder" id="paymentTimeLeft" required [(ngModel)]="model.paymentTimeLeft" name="paymentTimeLeft">
-    </mat-form-field>
+      <mat-form-field class="fullWidth">
+        <input matInput type="number" (ngModelChange)="onChange($event)" placeholder="Gjenstående måneder" id="paymentTimeLeft" required [(ngModel)]="model.paymentTimeLeft" name="paymentTimeLeft">
+      </mat-form-field>
 
-    <button mat-raised-button color="primary">Kalkuler</button>
-  </form>
+      <mat-button-toggle-group name="typeOfLoan" aria-label="Lånetype" color="primary">
+        <mat-button-toggle [checked]="model.typeOfLoan" (change)="typeOfLoan = $event.source.checked" value="amortized">Annuitetslån</mat-button-toggle>
+        <mat-button-toggle [checked]="model.typeOfLoan" (change)="typeOfLoan = $event.source.checked" value="serial">Serielån</mat-button-toggle>
+      </mat-button-toggle-group>
+        
+<!-- 
+      <mat-form-field class="fullWidth">
+        <input matInput type="number" (ngModelChange)="onChange($event)" placeholder="Ekstra innbetaling per måned" id="extraPayment" required [(ngModel)]="model.extraPayment" name="extraPayment">
+      </mat-form-field> -->
+
+    </form>
+  </mat-card-content>
 </mat-card>

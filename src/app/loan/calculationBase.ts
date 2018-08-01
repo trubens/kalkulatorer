@@ -5,6 +5,8 @@ export class CalculationBase {
         public paymentTime: number = 48,
         public paymentTimeLeft: number = 48,
         public interestRate: number = 2,
+        public typeOfLoan: string = "amortized",
+        public extraPayment: number = 0,
     ) { }
 
     clone() {
@@ -13,7 +15,9 @@ export class CalculationBase {
             this.sumLeft,
             this.paymentTime,
             this.paymentTimeLeft,
-            this.interestRate
+            this.interestRate,
+            this.typeOfLoan,
+            this.extraPayment
         );
     }
 }

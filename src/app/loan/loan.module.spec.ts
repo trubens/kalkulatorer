@@ -1,4 +1,4 @@
-import { LoanModule } from './Loan.module';
+import { LoanModule } from './loan.module';
 
 describe('LoanModule', () => {
   let loanModule: LoanModule;

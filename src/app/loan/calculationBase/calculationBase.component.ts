@@ -19,8 +19,12 @@ export class CalculationBaseComponent implements OnInit {
   }
   
 
-  onChange() {
-    this.store.dispatch(new fromActions.LoanSetCalculationBaseAction(this.model));
+  onChange(something) {
+    console.log(something);
+
+    // FIX this!!
+    setTimeout(() => this.store.dispatch(new fromActions.LoanSetCalculationBaseAction(this.model)),1);
+    
   }
 
   ngOnInit() {

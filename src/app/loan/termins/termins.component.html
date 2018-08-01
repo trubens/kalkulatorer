@@ -1,0 +1,58 @@
+<mat-card>
+  <mat-card-title>Terminer</mat-card-title>
+  <mat-card-content>
+    <div class="space-below">
+      <div class="third-width">
+          <div>Lån</div>
+          <div class="big-number">{{result.startSum | currency:'kr':'symbol':'0.2-2':'nb' }}</div>
+      </div>
+      <div class="third-width">
+          <div>Totalt å betale</div>
+          <div class="big-number">{{result.totalPayments | currency:'kr':'symbol':'0.2-2':'nb' }}</div>
+      </div>
+      <div class="third-width">
+          <div>Totalt renter</div>
+          <div class="big-number">{{result.totalInterest | currency:'kr':'symbol':'0.2-2':'nb' }}</div>
+      </div>
+    </div>
+    <div class="space-below">&nbsp;</div>
+    <div class="space-below" style="height: 400px">
+      <canvas #myChart>{{chart}}</canvas>
+    </div>
+    <div>
+      <mat-slide-toggle [(ngModel)]="showRepaymentPlan">Vis nedbetalingsplan</mat-slide-toggle>
+    </div>
+    <div *ngIf="showRepaymentPlan">
+      <table mat-table [dataSource]="result.payments" style="width: 100%">
+      <!-- Position Column -->
+        <ng-container matColumnDef="month">
+          <th mat-header-cell *matHeaderCellDef> Termin </th>
+          <td mat-cell *matCellDef="let element"> {{element.month}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="totalPayment">
+          <th mat-header-cell *matHeaderCellDef> Terminbeløp </th>
+          <td mat-cell *matCellDef="let element"> {{element.totalPayment | currency:'kr':'symbol':'0.2-2':'nb' }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="repayment">
+          <th mat-header-cell *matHeaderCellDef> Avbetaling </th>
+          <td mat-cell *matCellDef="let element"> {{element.repayment | currency:'kr':'symbol':'0.2-2':'nb' }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="interest">
+          <th mat-header-cell *matHeaderCellDef> Renter </th>
+          <td mat-cell *matCellDef="let element"> {{element.interest | currency:'kr':'symbol':'0.2-2':'nb' }} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="sumLeft">
+          <th mat-header-cell *matHeaderCellDef> Gjenstående beløp </th>
+          <td mat-cell *matCellDef="let element"> {{element.sumLeft | currency:'kr':'symbol':'0.2-2':'nb' }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>

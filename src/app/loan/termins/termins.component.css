@@ -1,0 +1,9 @@
+.big-number {
+    font-size: 200%;
+}
+
+.third-width {
+    width: 33%;
+    display: inline-block;
+    text-align: center;
+}
