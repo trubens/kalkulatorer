@@ -5,11 +5,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppComponent } from './app.component';
 import { LoanModule } from './loan/loan.module';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './reducers';
-import { MatToolbarModule } from '../../node_modules/@angular/material';
+import { MatToolbarModule } from '@angular/material';
 
 registerLocaleData(localeFr, 'nb');
 
@@ -20,6 +21,10 @@ registerLocaleData(localeFr, 'nb');
   imports: [
     BrowserModule,
     StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: false, // Restrict extension to log-only mode
+    }),
     LoanModule,
     FormsModule,
     BrowserAnimationsModule,

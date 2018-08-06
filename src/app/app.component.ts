@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { LoanService } from './loan/loan.service';
+import { CalculationBase } from './loan/calculationBase';
+import { ExtraRepayment } from './loan/extra-repayment';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +11,6 @@ import { LoanService } from './loan/loan.service';
 })
 export class AppComponent {
   title = 'kalkulatorer';
+  calculationBase = new CalculationBase();
+  extraRepayment = new ExtraRepayment();
 }

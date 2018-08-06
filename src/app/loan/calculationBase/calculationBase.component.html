@@ -22,16 +22,12 @@
         <input matInput type="number" (ngModelChange)="onChange($event)" placeholder="Gjenstående måneder" id="paymentTimeLeft" required [(ngModel)]="model.paymentTimeLeft" name="paymentTimeLeft">
       </mat-form-field>
 
-      <mat-button-toggle-group name="typeOfLoan" aria-label="Lånetype" color="primary">
-        <mat-button-toggle [checked]="model.typeOfLoan" (change)="typeOfLoan = $event.source.checked" value="amortized">Annuitetslån</mat-button-toggle>
-        <mat-button-toggle [checked]="model.typeOfLoan" (change)="typeOfLoan = $event.source.checked" value="serial">Serielån</mat-button-toggle>
-      </mat-button-toggle-group>
-        
-<!-- 
-      <mat-form-field class="fullWidth">
-        <input matInput type="number" (ngModelChange)="onChange($event)" placeholder="Ekstra innbetaling per måned" id="extraPayment" required [(ngModel)]="model.extraPayment" name="extraPayment">
-      </mat-form-field> -->
-
+      <mat-form-field>
+          <mat-select [(value)]="model.typeOfLoan" (change)="onChange($event)">
+            <mat-option value="amortized">Annuitetslån</mat-option>
+            <mat-option value="serial">Serielån</mat-option>
+          </mat-select>
+        </mat-form-field>
     </form>
   </mat-card-content>
 </mat-card>

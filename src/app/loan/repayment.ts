@@ -1,7 +1,8 @@
 import { RepaymentMonth } from "./repayment-month";
-import { summaryFileName } from "@angular/compiler/src/aot/util";
 
 export class Repayment {
+    public startSum = 0;
+
     constructor(public payments: RepaymentMonth[] = []){
     }
 
@@ -14,12 +15,6 @@ export class Repayment {
     public get totalInterest() {
         return this.payments
             .map(payment => payment.interest)
-            .reduce((sum, current) => sum + current);
-    }
-
-    public get startSum() {
-        return this.payments
-            .map(payment => payment.repayment)
             .reduce((sum, current) => sum + current);
     }
 }

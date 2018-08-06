@@ -1,0 +1,10 @@
+<mat-card class="space-below">
+    <mat-card-title>Ekstra innbetaling</mat-card-title>
+    <mat-card-content>
+      <form>
+        <mat-form-field class="fullWidth">
+          <input matInput type="number" (ngModelChange)="onChange($event)" placeholder="Ekstra månedlig innbetaling" id="monthlyPayment" required [(ngModel)]="model.monthlyPayment" name="monthlyPayment">
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+  </mat-card>

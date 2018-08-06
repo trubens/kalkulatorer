@@ -1,21 +1,6 @@
 <mat-card>
   <mat-card-title>Terminer</mat-card-title>
   <mat-card-content>
-    <div class="space-below">
-      <div class="third-width">
-          <div>Lån</div>
-          <div class="big-number">{{result.startSum | currency:'kr':'symbol':'0.2-2':'nb' }}</div>
-      </div>
-      <div class="third-width">
-          <div>Totalt å betale</div>
-          <div class="big-number">{{result.totalPayments | currency:'kr':'symbol':'0.2-2':'nb' }}</div>
-      </div>
-      <div class="third-width">
-          <div>Totalt renter</div>
-          <div class="big-number">{{result.totalInterest | currency:'kr':'symbol':'0.2-2':'nb' }}</div>
-      </div>
-    </div>
-    <div class="space-below">&nbsp;</div>
     <div class="space-below" style="height: 400px">
       <canvas #myChart>{{chart}}</canvas>
     </div>

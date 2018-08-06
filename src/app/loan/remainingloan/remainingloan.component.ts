@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AppStates } from '../../app.states';
 import { Store } from '@ngrx/store';
 import { Repayment } from '../repayment';
-import { getCalculationBase } from '../loan.reducer';
+import { getBaseAndExtraRepayment, getCalculationBase, getExtraRepayment } from '../loan.reducer';
 import { LoanService } from '../loan.service';
 import { Chart } from 'chart.js';
 
@@ -18,9 +18,9 @@ export class RemainingloanComponent implements OnInit {
   @ViewChild('myChart') chartElement: ElementRef;
 
   constructor(private loanService: LoanService, private store: Store<AppStates>) {
-    this.store.select(getCalculationBase).subscribe(repayment => {
-      this.result = this.loanService.getAmortizedMortage(repayment);
-      this.resultWithoutExtraPayment = this.loanService.getAmortizedMortage(this.getRepaymentWithoutExtraPayment(repayment));
+    this.store.select(getBaseAndExtraRepayment).subscribe(({calculationBase, extraRepayment}) => {
+      this.result = this.loanService.getAmortizedMortage(calculationBase, extraRepayment);
+      this.resultWithoutExtraPayment = this.loanService.getAmortizedMortage(calculationBase);
 
       
       if(this.chart) {
@@ -44,7 +44,7 @@ export class RemainingloanComponent implements OnInit {
       data: {
         labels: this.result.payments.map(month => 'Termin ' + month.month),
         datasets: [{
-          borderColor: '#3f51b5',
+          borderColor: '#14bdcc',
           data: this.result.payments.map(month => month.sumLeft),
           label: 'Gjenstående lån',
           datalabels: {

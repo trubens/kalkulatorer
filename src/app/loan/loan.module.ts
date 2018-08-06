@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CalculationBaseComponent } from './calculationBase/calculationBase.component';
 import { FormsModule } from '@angular/forms';
-import { MatInputModule, MatCardModule, MatButtonModule, MatTableModule, MatSlideToggleModule, MatButtonToggleModule } from '@angular/material';
+import { MatInputModule, MatCardModule, MatButtonModule, MatTableModule, MatSlideToggleModule, MatButtonToggleModule, MatSelectModule } from '@angular/material';
 import { TerminsComponent } from './termins/termins.component';
 import { LoanService } from './loan.service';
 import { RemainingloanComponent } from './remainingloan/remainingloan.component';
+import { BasicInfoComponent } from './basic-info/basic-info.component';
+import { ExtraRepaymentComponent } from './extra-repayment/extra-repayment.component';
 
 @NgModule({
   imports: [
@@ -16,12 +18,13 @@ import { RemainingloanComponent } from './remainingloan/remainingloan.component'
     MatButtonModule,
     MatTableModule,
     MatSlideToggleModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatSelectModule
   ],
   exports: [
-    CalculationBaseComponent, TerminsComponent, RemainingloanComponent
+    CalculationBaseComponent, TerminsComponent, RemainingloanComponent, BasicInfoComponent, ExtraRepaymentComponent
   ],
   providers: [LoanService],
-  declarations: [CalculationBaseComponent, TerminsComponent, RemainingloanComponent]
+  declarations: [CalculationBaseComponent, TerminsComponent, RemainingloanComponent, BasicInfoComponent, ExtraRepaymentComponent]
 })
 export class LoanModule { }

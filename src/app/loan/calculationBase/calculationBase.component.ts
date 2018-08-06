@@ -19,9 +19,7 @@ export class CalculationBaseComponent implements OnInit {
   }
   
 
-  onChange(something) {
-    console.log(something);
-
+  onChange() {
     // FIX this!!
     setTimeout(() => this.store.dispatch(new fromActions.LoanSetCalculationBaseAction(this.model)),1);
     

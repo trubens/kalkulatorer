@@ -2,10 +2,9 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AppStates } from '../../app.states';
 import { Store } from '@ngrx/store';
 import { Repayment } from '../repayment';
-import { getCalculationBase } from '../loan.reducer';
+import { getBaseAndExtraRepayment } from '../loan.reducer';
 import { LoanService } from '../loan.service';
 import { Chart } from 'chart.js';
-import { RepaymentMonth } from '../repayment-month';
 
 @Component({
   selector: 'app-termins',
@@ -20,8 +19,8 @@ export class TerminsComponent implements OnInit {
   @ViewChild('myChart') chartElement: ElementRef;
 
   constructor(private loanService: LoanService, private store: Store<AppStates>) {
-    this.store.select(getCalculationBase).subscribe(observer => {
-      this.result = this.loanService.getAmortizedMortage(observer);
+    this.store.select(getBaseAndExtraRepayment).subscribe(({calculationBase, extraRepayment}) => {
+      this.result = this.loanService.getAmortizedMortage(calculationBase, extraRepayment);
       
       if(this.chart) {
         this.chart.data.labels = this.result.payments.map(month => month.month);
@@ -38,7 +37,7 @@ export class TerminsComponent implements OnInit {
       data: {
         labels: this.result.payments.map(month => 'Termin ' + month.month),
         datasets: [{
-          backgroundColor: '#3f51b5',
+          backgroundColor: '#14bdcc',
           data: this.result.payments.map(month => month.repayment),
           label: 'Avdrag',
           datalabels: {
@@ -46,7 +45,7 @@ export class TerminsComponent implements OnInit {
           }
         },
         {
-          backgroundColor: '#ff0000',
+          backgroundColor: '#cf191d',
           data: this.result.payments.map(month => month.interest),
           datalabels: {
             anchor: 'end'
