@@ -1,14 +1,26 @@
 import { IClonable } from "./iclonable";
 
+const AMORTIZED = 'amortized'
+const YEAR = 'year'
+
 export class CalculationBase implements IClonable {
     constructor(
-        public totalSum: number = 65000,
-        public sumLeft: number = 50000,
-        public paymentTime: number = 48,
-        public paymentTimeLeft: number = 48,
+        public totalSum: number = 2000000,
+        public sumLeft: number = 2000000,
+        public paymentTime: number = 25,
+        public paymentTimeLeft: number = 25,
         public interestRate: number = 2,
-        public typeOfLoan: string = "amortized"
+        public typeOfLoan: string = AMORTIZED,
+        public timeUnit: string = YEAR
     ) { }
+
+    public get isAmortized() {
+        return this.typeOfLoan === AMORTIZED;
+    }
+
+    public get months() {
+        return this.timeUnit === YEAR ? this.paymentTime * 12 : this.paymentTime;
+    }
 
     clone() {
         return new CalculationBase(
@@ -17,7 +29,8 @@ export class CalculationBase implements IClonable {
             this.paymentTime,
             this.paymentTimeLeft,
             this.interestRate,
-            this.typeOfLoan
+            this.typeOfLoan,
+            this.timeUnit
         );
     }
 }

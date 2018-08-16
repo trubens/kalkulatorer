@@ -1,32 +1,36 @@
 <mat-card class="space-below">
     <mat-card-content>
         <div class="space-below">
-          <div class="third-width">
-              <div>Lån</div>
-              <div class="big-number">{{result.startSum | currency:'kr':'symbol':'0.2-2':'nb' }}</div>
-          </div>
-          <div class="third-width">
-              <div>Totalt å betale</div>
-              <div class="big-number">{{result.totalPayments | currency:'kr':'symbol':'0.2-2':'nb' }}</div>
-          </div>
-          <div class="third-width">
-              <div>Totalt renter</div>
-              <div class="big-number">{{result.totalInterest | currency:'kr':'symbol':'0.2-2':'nb' }}</div>
-          </div>
+            <div class="third-width">
+                <div>Totalt å betale</div>
+                <div class="big-number">{{result.totalPayments | currency:'kr':'symbol':'0.2-2':'nb' }}</div>
+            </div>
+            <div class="third-width">
+                <div>Totalt renter</div>
+                <div class="big-number">{{result.totalInterest | currency:'kr':'symbol':'0.2-2':'nb' }}</div>
+            </div>
+            <div class="third-width">
+                <div>Totalt renter etter skattefradrag</div>
+                <div class="big-number">{{result.totalInterest * 0.77 | currency:'kr':'symbol':'0.2-2':'nb' }}</div>
+            </div>
         </div>
-        <div class="">
-          <div class="third-width">
-              <div>Totalt renter etter skattefradrag</div>
-              <div class="big-number">{{result.totalInterest * 0.77 | currency:'kr':'symbol':'0.2-2':'nb' }}</div>
-          </div>
-          <div class="third-width">
-              <div>Spart på å betale ekstra</div>
-              <div class="big-number">{{resultWithoutExtraPayment.totalPayments - result.totalPayments | currency:'kr':'symbol':'0.2-2':'nb' }}</div>
-          </div>
-          <div class="third-width">
-              <div>Terminer spart</div>
-              <div class="big-number">{{timeSaved()}} måneder</div>
-          </div>
+        <div class="space-below">
+            <div class="third-width">
+                <div>Belåning</div>
+                <div class="big-number">{{capital | percent }}</div>
+            </div>
+            <div class="third-width">
+                <div>Tid før du når 75%</div>
+                <div class="big-number">{{terminsBeforeSafe()}}</div>
+            </div>
+            <div class="third-width" *ngIf="hasExtraPayment">
+                <div>Spart på å betale ekstra</div>
+                <div class="big-number">{{resultWithoutExtraPayment.totalPayments - result.totalPayments | currency:'kr':'symbol':'0.2-2':'nb' }}</div>
+            </div>
+            <div class="third-width" *ngIf="hasExtraPayment">
+                <div>Terminer spart</div>
+                <div class="big-number">{{timeSaved()}} måneder</div>
+            </div>
         </div>
         <div class="space-below">&nbsp;</div>
     </mat-card-content>
