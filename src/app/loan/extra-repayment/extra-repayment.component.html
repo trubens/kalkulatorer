@@ -1,10 +1,12 @@
-<mat-card class="space-below">
-    <mat-card-title>Ekstra innbetaling</mat-card-title>
-    <mat-card-content>
-      <form>
-        <mat-form-field class="fullWidth">
-          <input matInput type="number" (ngModelChange)="onChange($event)" placeholder="Ekstra månedlig innbetaling" id="amount" required [(ngModel)]="model.amount" name="amount">
-        </mat-form-field>
-      </form>
-    </mat-card-content>
-  </mat-card>
+<form>
+  <mat-form-field>
+    <mat-select placeholder="Ekstra innbetaling" class="fullWidth">
+      <mat-option value="EVEN SUM">Fast sum hver måned</mat-option>
+      <mat-option value="EVEN EXTRA">Betale en fast ekstra sum hver måned</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <mat-form-field class="fullWidth">
+    <input matInput type="number" (ngModelChange)="onChange($event)" placeholder="Ekstra månedlig innbetaling" id="amount" required [(ngModel)]="model.amount" name="amount">
+  </mat-form-field>
+</form>

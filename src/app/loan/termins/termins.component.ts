@@ -38,7 +38,7 @@ export class TerminsComponent implements OnInit {
         labels: this.result.payments.map(month => 'Termin ' + month.month),
         datasets: [{
           barThickness: 40,
-          backgroundColor: '#14bdcc',
+          backgroundColor: '#85CC40',
           data: this.result.payments.map(month => month.repayment),
           label: 'Avdrag',
           datalabels: {
@@ -47,7 +47,7 @@ export class TerminsComponent implements OnInit {
         },
         {
           barThickness: 40,
-          backgroundColor: '#cf191d',
+          backgroundColor: '#FF6A88',
           data: this.result.payments.map(month => month.interest),
           datalabels: {
             anchor: 'end'

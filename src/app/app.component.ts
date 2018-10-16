@@ -7,10 +7,11 @@ import { ExtraRepayment } from './loan/extra-repayment';
   selector: 'app-root',
   templateUrl: './app.component.html',
   providers: [LoanService],
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'kalkulatorer';
   calculationBase = new CalculationBase();
   extraRepayment = new ExtraRepayment();
+  activeTab = 0;
 }

@@ -44,7 +44,7 @@ export class RemainingloanComponent implements OnInit {
       data: {
         labels: this.result.payments.map(month => 'Termin ' + month.month),
         datasets: [{
-          borderColor: '#14bdcc',
+          borderColor: '#85CC40',
           data: this.result.payments.map(month => month.sumLeft),
           label: 'Gjenstående lån',
           lineTension: 0,
@@ -53,7 +53,7 @@ export class RemainingloanComponent implements OnInit {
           }
         },
         {
-          borderColor: '#999',
+          borderColor: '#FF9A8B',
           lineTension: 0,
           data: this.resultWithoutExtraPayment.payments.map(month => month.sumLeft),
           label: 'Gjenstående lån uten ekstra innbetaling',

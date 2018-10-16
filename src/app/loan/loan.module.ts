@@ -9,6 +9,7 @@ import { RemainingloanComponent } from './remainingloan/remainingloan.component'
 import { BasicInfoComponent } from './basic-info/basic-info.component';
 import { ExtraRepaymentComponent } from './extra-repayment/extra-repayment.component';
 import { PercentagesComponent } from './percentages/percentages.component';
+import { FixedInterestRateComponent } from './fixed-interest-rate/fixed-interest-rate.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,6 @@ import { PercentagesComponent } from './percentages/percentages.component';
     CalculationBaseComponent, TerminsComponent, RemainingloanComponent, BasicInfoComponent, ExtraRepaymentComponent
   ],
   providers: [LoanService],
-  declarations: [CalculationBaseComponent, TerminsComponent, RemainingloanComponent, BasicInfoComponent, ExtraRepaymentComponent, PercentagesComponent]
+  declarations: [CalculationBaseComponent, TerminsComponent, RemainingloanComponent, BasicInfoComponent, ExtraRepaymentComponent, PercentagesComponent, FixedInterestRateComponent]
 })
 export class LoanModule { }

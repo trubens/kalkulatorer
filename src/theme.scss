@@ -26,3 +26,11 @@ $my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
 
 
 @include angular-material-theme($my-app-theme);
+
+html {
+  background: #f2f2f2;
+}
+
+body {
+  background: transparent;
+}
